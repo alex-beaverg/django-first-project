@@ -1,0 +1,36 @@
+{% extends 'main_app/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>
+            {% filter upper %}
+                Main Page
+            {% endfilter %}
+        </h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores natus nesciunt quis vel voluptate!
+            Atque consequuntur deserunt doloribus eligendi, eos error esse hic laudantium maxime, nemo officiis,
+            porro quibusdam unde.
+        </p>
+        <button class="btn btn-warning">Submit smth.</button>
+
+        {% for item in values %}
+            <p>{{ item|upper }}</p>
+        {% endfor %}
+
+        {% for key, value in obj.items %}
+            {% if key == 'age' %}
+                <p>
+                    {% filter upper %}
+                        {{ key }}:
+                    {% endfilter %}
+                    {{ value }}
+                </p>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+<!--    {% include 'main_app/test.html' %}-->
+{% endblock %}
